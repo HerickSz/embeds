@@ -93,7 +93,8 @@
             display: flex;
             list-style-type: none;
             margin: 0;
-            padding: 20px;
+            justify-content: space-between;
+            padding: 10px;
             background-color: darkgreen;
         }
 
@@ -112,13 +113,15 @@
         }
 
 
-        @media (max-width: 400px) {
+        @media (max-width: 359px) {
             .menu-btn {
                 display: block;
             }
 
+
             .nav {
-                display: none;
+                display: flex;
+                flex-direction: column;
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -138,7 +141,6 @@
 <body>
     <div class="header">
         <h1>CANAIS CLOUD</h1>
-        <button class="menu-btn" onclick="toggleNav()">Menu</button>
         <ul class="nav" id="nav">
             <li><a href="#filmes">FILMES</a></li>
             <li><a href="#esportes">ESPORTES</a></li>
