@@ -120,6 +120,26 @@
             background-color: #4CAF50;
             border-radius: 5px;
         }
+	     /* Estilo para o botão voltar ao topo */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none; /* Inicialmente invisível */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Estilo do botão quando hover */
+        .scroll-top-btn:hover {
+            background-color: #444;
+        }
 
 
         @media (max-width: 359px) {
@@ -146,6 +166,27 @@
         }
     </style>
 </head>
+	<script>
+        // Obtém o botão
+        var scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Quando o usuário rolar para baixo 100px da parte superior do documento, mostra o botão
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Quando o botão é clicado, rola suavemente para o topo da página
+        scrollTopBtn.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        };
+    </script>
 <body>
     <div class="header">
         <h1>CANAIS CLOUD</h1>
