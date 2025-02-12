@@ -9,94 +9,72 @@
 	
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-       body {
-    padding-top: 150px; /* Ajuste o valor conforme a altura da sua header */
+       * {
+    box-sizing: border-box;
 }
 
-        .container {
-            width: 100%;
-            margin: 0 auto;
-            padding: 10px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .header {
-            background-color: #f5f5f5;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-        }
-	h1{
-	;
+body {
+    padding-top: 150px; /* Ajuste o valor conforme a altura do header */
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
     padding: 10px;
-}
-	}
-
-        .channel-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin: 15px 0;
-            padding: 15px;
-            position: relative;
-            width: 100%;
-            display: inline-table;
-        }
-
-        .channel-card iframe {
-            border: none;
-            height: 400px;
-            width: 100%;
-        }
-
-        .channel-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #f5f5f5;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .channel-description {
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-	    /* Estilo do botão */
-    #myBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      display: none; /* Inicialmente oculto */
-	    background-color: darkgreen;
-    border: none;
-    }
-
-        @media (min-width: 768px) {
-            .channel-card {
-                width: calc(33.333% - 30px);
-            }
-        }
-
-       .header {
-    background: #000000;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Espaço entre os elementos */
+}
+
+.channel-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    position: relative;
+    width: calc(50% - 20px); /* Dois por linha */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.channel-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.channel-description {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.channel-card iframe {
+    border: none;
+    height: 400px;
+    width: 100%;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    .channel-card {
+        width: 100%; /* Um por linha no celular */
+    }
+}
+
+.header {
+    background: #000000;
+    display: grid;
     justify-content: space-evenly;
     color: #fff;
     align-items: center;
@@ -108,75 +86,68 @@
     padding: 10px 0;
 }
 
-        .menu-btn {
-            display: none;
-        }
+.nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: darkgreen;
+}
 
-        .nav {
-            display: flex;
-            list-style-type: none;
-            margin: 0;
-            justify-content: space-between;
-            padding: 10px;
-            background-color: darkgreen;
-        }
+.nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: darkgreen;
+    border-radius: 5px;
+}
 
-        .nav a {
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-            padding: 5px 10px;
-            margin: 0 5px;
-            background-color: darkgreen;
-            border-radius: 5px;
-        }
+.nav a:hover {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
 
-        .nav a:hover {
-            background-color: #4CAF50;
-            border-radius: 5px;
-        }
-	  
+#myBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    display: none;
+    background-color: darkgreen;
+    border: none;
+}
 
-        @media (max-width: 359px) {
-            .menu-btn {
-                display: block;
-            }
-
-
-            .nav {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                flex-direction: column;
-            }
-
-            .nav.show {
-                display: flex;
-            }
-
-        }
+#cloud{
+    margin-top: 10px;
+    text-align: center;
+}
+h1{
+    padding: 10px;
+}
     </style>
 </head>
 	
 <body>
-
+<header>
     <div class="header">
-        <h1>CANAIS CLOUD</h1>
+          <h1 id="cloud">CANAIS CLOUD</h1>
         <ul class="nav" id="nav">
             <li><a href="#filmes">FILMES</a></li>
             <li><a href="#esportes">ESPORTES</a></li>
             <li><a href="#abertos">ABERTOS</a></li>
         </ul>
     </div>
+</header>
+    
     
     <center>
 	    <h1 style="text-align: center;">Aproveite os canais, feche todos os PopUps iniciais!</h1>
     <p style="text-align: center;">Média de 1m para carregar todos os players! :)</p>
+    <h1 id="filmes" style="text-align: center; color: #4CAF50;">Filmes</h1>
         <div class="container"></br></br>
-            <h1 id="filmes" style="text-align: center; color: #4CAF50;">Filmes</h1>
+            
             <div class="header">
 
             </div>
@@ -244,8 +215,9 @@
                 <iframe name=Player "" src="//%78%6E%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%67%33%34%6C%33%66%6B%70%37%6D%73%68%31%63%6A%33%61%63%6F%62%6A%33%33%61%63%32%61%37%61%38%6C%75%66%6F%6D%6D%61%37%63%66%32%62%31%73%68%2E%78%6E%2D%2D%2D%31%6C%31%2D%2D%35%6F%34%64%78%62%2E%78%6E%2D%2D%2D%32%32%2D%2D%31%31%2D%2D%33%33%2D%2D%39%39%2D%2D%37%35%2D%2D%2D%2D%2D%2D%2D%2D%2D%62%32%35%7A%6A%66%33%6C%74%61%36%6D%77%66%36%61%34%37%64%7A%61%39%34%65%2E%78%6E%2D%2D%70%63%6B%2E%78%6E%2D%2D%7A%63%6B%2E%78%6E%2D%2D%30%63%6B%2E%78%6E%2D%2D%70%63%6B%2E%78%6E%2D%2D%79%63%6B%2E%78%6E%2D%2D%2D%2D%2D%30%62%34%61%73%6A%61%38%63%62%65%77%32%62%34%62%30%67%64%30%65%64%62%6A%6D%32%6A%70%61%31%62%31%65%39%7A%76%61%37%61%30%33%34%37%73%34%64%61%32%37%39%37%65%37%71%72%69%2E%78%6E%2D%2D%31%63%6B%32%65%31%62/player3/ch.php?canal=telecinepipoca" allowFullScreen></iframe>
             </div>
         </div>
+        <h1 id="esportes" style="text-align: center; color: #4CAF50;">Esportes</h1>
         <div class="container">
-            <h1 id="esportes" style="text-align: center; color: #4CAF50;">Esportes</h1>
+            
             <div class="header">
 
             </div>
@@ -285,8 +257,9 @@
                 <iframe name=Player "" src="//%78%6E%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%67%33%34%6C%33%66%6B%70%37%6D%73%68%31%63%6A%33%61%63%6F%62%6A%33%33%61%63%32%61%37%61%38%6C%75%66%6F%6D%6D%61%37%63%66%32%62%31%73%68%2E%78%6E%2D%2D%2D%31%6C%31%2D%2D%35%6F%34%64%78%62%2E%78%6E%2D%2D%2D%32%32%2D%2D%31%31%2D%2D%33%33%2D%2D%39%39%2D%2D%37%35%2D%2D%2D%2D%2D%2D%2D%2D%2D%62%32%35%7A%6A%66%33%6C%74%61%36%6D%77%66%36%61%34%37%64%7A%61%39%34%65%2E%78%6E%2D%2D%70%63%6B%2E%78%6E%2D%2D%7A%63%6B%2E%78%6E%2D%2D%30%63%6B%2E%78%6E%2D%2D%70%63%6B%2E%78%6E%2D%2D%79%63%6B%2E%78%6E%2D%2D%2D%2D%2D%30%62%34%61%73%6A%61%38%63%62%65%77%32%62%34%62%30%67%64%30%65%64%62%6A%6D%32%6A%70%61%31%62%31%65%39%7A%76%61%37%61%30%33%34%37%73%34%64%61%32%37%39%37%65%37%71%72%69%2E%78%6E%2D%2D%31%63%6B%32%65%31%62/player3/ch.php?canal=espn2" allowFullScreen></iframe>
             </div>
         </div>
+        <h1 id="abertos" style="text-align: center; color: #4CAF50;">Abertos</h1>
         <div class="container">
-            <h1 id="abertos" style="text-align: center; color: #4CAF50;">Abertos</h1>
+            
             <div class="header">
 
             </div>
